@@ -1,33 +1,32 @@
 from flask import Flask, render_template, request
-from datetime import datetime
 
 app = Flask(__name__)
 
-def zodiac_sign(day, month):
+def zodiac_sign(month):
     if month == 12:
-        astro_sign = 'Sagittarius' if (day < 22) else 'Capricorn'
+        astro_sign = 'Sagittarius' 
     elif month == 1:
-        astro_sign = 'Capricorn' if (day < 20) else 'Aquarius'
+        astro_sign = 'Capricorn' 
     elif month == 2:
-        astro_sign = 'Aquarius' if (day < 19) else 'Pisces'
+        astro_sign = 'Aquarius' 
     elif month == 3:
-        astro_sign = 'Pisces' if (day < 21) else 'Aries'
+        astro_sign = 'Pisces' 
     elif month == 4:
-        astro_sign = 'Aries' if (day < 20) else 'Taurus'
+        astro_sign = 'Aries' 
     elif month == 5:
-        astro_sign = 'Taurus' if (day < 21) else 'Gemini'
+        astro_sign = 'Taurus' 
     elif month == 6:
-        astro_sign = 'Gemini' if (day < 21) else 'Cancer'
+        astro_sign = 'Gemini' 
     elif month == 7:
-        astro_sign = 'Cancer' if (day < 23) else 'Leo'
+        astro_sign = 'Cancer' 
     elif month == 8:
-        astro_sign = 'Leo' if (day < 23) else 'Virgo'
+        astro_sign = 'Leo' 
     elif month == 9:
-        astro_sign = 'Virgo' if (day < 23) else 'Libra'
+        astro_sign = 'Virgo'
     elif month == 10:
-        astro_sign = 'Libra' if (day < 23) else 'Scorpio'
+        astro_sign = 'Libra' 
     elif month == 11:
-        astro_sign = 'Scorpio' if (day < 22) else 'Sagittarius'
+        astro_sign = 'Scorpio' 
     return astro_sign
 
 @app.route("/")
@@ -37,10 +36,9 @@ def hello_world():
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
-    input_birthdate = request.form.get("birthdate")
+    input_month = request.form.get("month")
 
-    birthdate = datetime.strptime(birthdate, "%d-%m-%y")
-    zodiac = zodiac_sign(birthdate.day, birthdate.month)
+    zodiac = zodiac_sign(month)
 
-    return render_template("hello.html", name=input_name, birthdate=input_birthdate>
+    return render_template("hello.html", name=input_name, month=input_month, zodiac = input_zodiac>
 
