@@ -36,9 +36,9 @@ def hello_world():
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
-    input_month = request.form.get("month")
+    input_month = int(request.form.get("month"))
 
-    zodiac = zodiac_sign(month)
+    zodiac = zodiac_sign(input_month)
 
     return render_template("hello.html", name=input_name, month=input_month, zodiac=zodiac)
 
