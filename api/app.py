@@ -40,5 +40,5 @@ def submit():
 
     zodiac = zodiac_sign(month)
 
-    return render_template("hello.html", name=input_name, month=input_month, zodiac = input_zodiac>
+    return render_template("hello.html", name=input_name, month=input_month, zodiac = input_zodiac)
 
